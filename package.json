@@ -1,9 +1,9 @@
 {
   "name": "shimmer-ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "homepage": "https://mohit825.github.io/react-components/",
+  "homepage": "https://mohit825.github.io/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
