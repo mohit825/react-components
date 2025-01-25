@@ -15,6 +15,7 @@ const Header = () => {
       <Link to="/image-slider">Image Carousel </Link>
       <Link to="/stream">Live Streaming</Link>
       <Link to="/search">Search Bar</Link>
+      <Link to="/pagination">Pagination</Link>
     </nav>
   );
 };
