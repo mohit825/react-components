@@ -56,13 +56,15 @@ const PaginationContainer = () => {
             })
           : null}
       </div>
-      <Pagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        onNextButtonHandler={onNextBtnClicked}
-        onPrevButtonHandler={onPrevBtnClicked}
-        onPageSelectHandler={onPageSelected}
-      />
+      {currentPage && totalPages && (
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          onNextButtonHandler={onNextBtnClicked}
+          onPrevButtonHandler={onPrevBtnClicked}
+          onPageSelectHandler={onPageSelected}
+        />
+      )}
     </>
   );
 };

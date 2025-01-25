@@ -11,7 +11,11 @@ import Admin from "./Links/Admin";
 import BookingContainer from "./Links/BookingContainer";
 import { Home } from "./Links/Home";
 import Login from "./Links/Login";
-import PaginationContainer from "./components/Pagination/PaginationContainer";
+import { lazy, Suspense } from "react";
+
+const PaginationContainer = lazy(() =>
+  import("./components/Pagination/PaginationContainer")
+);
 
 function App() {
   return (
@@ -30,7 +34,20 @@ function App() {
         <Route path="/image-slider" element={<ImageSliderContainer />} />
         <Route path="/stream" element={<LiveStreaming />} />
         <Route path="/search" element={<SearchBar />} />
-        <Route path="/pagination" element={<PaginationContainer />} />
+        <Route
+          path="/pagination"
+          element={
+            <Suspense
+              fallback={
+                <div>
+                  <h1>Loading...</h1>
+                </div>
+              }
+            >
+              <PaginationContainer />
+            </Suspense>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
