@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://mohit825.github.io/",
+  "homepage": "https://mohit825.github.io/react-components/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
