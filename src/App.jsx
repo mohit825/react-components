@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/react-components" element={<Home />} />
         <Route path="/booking" element={<BookingContainer />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/admin" element={<Admin />} />

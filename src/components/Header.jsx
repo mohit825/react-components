@@ -4,7 +4,10 @@ import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <nav className="w-full bg-black text-white flex row gap-4 p-6">
-      <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+      <NavLink
+        to="/react-components"
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
         Home
       </NavLink>
       <Link to="/booking">Booking</Link>
