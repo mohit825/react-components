@@ -8,7 +8,8 @@ import ProtectedRoute from "./hoc/ProtectedRoute";
 import Admin from "./Links/Admin";
 import { Home } from "./Links/Home";
 import Login from "./Links/Login";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
+import ThemeContext from "./store/ThemeContext";
 
 const PaginationContainer = lazy(() =>
   import("./components/Pagination/PaginationContainer")
@@ -25,77 +26,80 @@ const AccordionContainer = lazy(() =>
 );
 
 function App() {
+  const [theme, setTheme] = useState("light");
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/react-components" element={<Home />} />
-        <Route
-          path="/booking"
-          element={
-            <Suspense
-              fallback={
-                <div>
-                  <h1>Loading...</h1>
-                </div>
-              }
-            >
-              <BookingContainer />
-            </Suspense>
-          }
-        />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/admin" element={<Admin />} />
-        </Route>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/react-components" element={<Home />} />
+          <Route
+            path="/booking"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <h1>Loading...</h1>
+                  </div>
+                }
+              >
+                <BookingContainer />
+              </Suspense>
+            }
+          />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<Admin />} />
+          </Route>
 
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/accordion"
-          element={
-            <Suspense
-              fallback={
-                <div>
-                  <h1>Loading...</h1>
-                </div>
-              }
-            >
-              <AccordionContainer />
-            </Suspense>
-          }
-        />
-        <Route path="/comments" element={<CommentsContainer />} />
-        <Route
-          path="/image-slider"
-          element={
-            <Suspense
-              fallback={
-                <div>
-                  <h1>Loading...</h1>
-                </div>
-              }
-            >
-              <ImageSliderContainer />
-            </Suspense>
-          }
-        />
-        <Route path="/stream" element={<LiveStreaming />} />
-        <Route path="/search" element={<SearchBar />} />
-        <Route
-          path="/pagination"
-          element={
-            <Suspense
-              fallback={
-                <div>
-                  <h1>Loading...</h1>
-                </div>
-              }
-            >
-              <PaginationContainer />
-            </Suspense>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/accordion"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <h1>Loading...</h1>
+                  </div>
+                }
+              >
+                <AccordionContainer />
+              </Suspense>
+            }
+          />
+          <Route path="/comments" element={<CommentsContainer />} />
+          <Route
+            path="/image-slider"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <h1>Loading...</h1>
+                  </div>
+                }
+              >
+                <ImageSliderContainer />
+              </Suspense>
+            }
+          />
+          <Route path="/stream" element={<LiveStreaming />} />
+          <Route path="/search" element={<SearchBar />} />
+          <Route
+            path="/pagination"
+            element={
+              <Suspense
+                fallback={
+                  <div>
+                    <h1>Loading...</h1>
+                  </div>
+                }
+              >
+                <PaginationContainer />
+              </Suspense>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </ThemeContext.Provider>
   );
 }
 

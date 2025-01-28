@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useFetchData from "./../hooks/useFetchData";
+import useFetchData from "../../hooks/useFetchData";
 import MemeCard from "../MemeCard";
 import Pagination from "./Pagination";
 import { calcultateNumberOfPages } from "./utils";
