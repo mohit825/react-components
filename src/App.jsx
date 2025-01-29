@@ -24,9 +24,13 @@ const BookingContainer = lazy(() => import("./Links/BookingContainer"));
 const AccordionContainer = lazy(() =>
   import("./components/Accordion/AccordionContainer")
 );
+import { useLocalStorage } from "./hooks/useLocalStorageHooks";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [themePreferenceSelected] = useLocalStorage("theme", "dark");
+
+  const [theme, setTheme] = useState(themePreferenceSelected);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <BrowserRouter>

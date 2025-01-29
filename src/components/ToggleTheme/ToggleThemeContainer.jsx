@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import ThemeContext from "../../store/ThemeContext";
+import { useLocalStorage } from "../../hooks/useLocalStorageHooks";
 
 const ToggleThemeContainer = () => {
   const { theme, setTheme } = useContext(ThemeContext);
+  // const { setLocalStorage } = useLocalStorage();
+
+  const [_, setThemePreference] = useLocalStorage("theme");
 
   function renderThemeText() {
     if (theme === "light") {
@@ -14,8 +18,10 @@ const ToggleThemeContainer = () => {
   const onToggleHandler = () => {
     if (theme === "light") {
       setTheme("dark");
+      setThemePreference("dark");
     } else {
       setTheme("light");
+      setThemePreference("light");
     }
   };
 
