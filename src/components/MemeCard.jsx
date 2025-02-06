@@ -6,6 +6,7 @@ const MemeCard = ({ meme, onMemeClick }) => {
     <div
       className="p-5 m-5 border border-black rounded-lg cursor-pointer"
       onClick={() => onMemeClick(meme)}
+      data-testid="meme-card"
     >
       <img
         src={url || thumbnail}
