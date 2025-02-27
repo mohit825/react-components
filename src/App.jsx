@@ -1,14 +1,18 @@
+import { lazy, Suspense, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import LiveStreaming from "./components/Live Streaming/Live Streaming";
 import CommentsContainer from "./components/nested-comments/commentsContainer";
+import ReactPatterns from "./components/React Patterns";
+import CompoundPattern from "./components/React Patterns/Compound Pattern/index";
+import HOCExample from "./components/React Patterns/HOCExample/HOCExample";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ProtectedRoute from "./hoc/ProtectedRoute";
+import { useLocalStorage } from "./hooks/useLocalStorageHooks";
 import Admin from "./Links/Admin";
 import { Home } from "./Links/Home";
 import Login from "./Links/Login";
-import { lazy, Suspense, useState } from "react";
 import ThemeContext from "./store/ThemeContext";
 
 const PaginationContainer = lazy(() =>
@@ -24,7 +28,6 @@ const BookingContainer = lazy(() => import("./Links/BookingContainer"));
 const AccordionContainer = lazy(() =>
   import("./components/Accordion/AccordionContainer")
 );
-import { useLocalStorage } from "./hooks/useLocalStorageHooks";
 
 function App() {
   const [themePreferenceSelected] = useLocalStorage("theme", "dark");
@@ -101,6 +104,10 @@ function App() {
               </Suspense>
             }
           />
+          <Route path="/react-patterns" element={<ReactPatterns />}>
+            <Route path="hoc-example" element={<HOCExample />} />
+            <Route path="compound" element={<CompoundPattern />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ThemeContext.Provider>

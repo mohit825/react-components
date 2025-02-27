@@ -31,6 +31,7 @@ const Header = () => {
         <Link to="/stream">Live Streaming</Link>
         <Link to="/search">Search Bar</Link>
         <Link to="/pagination">Pagination</Link>
+        <Link to="/react-patterns">Patterns</Link>
       </nav>
       <ToggleThemeContainer />
     </div>
