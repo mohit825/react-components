@@ -33,7 +33,6 @@ export const Home = () => {
   }, []);
 
   const onMemeClickHandler = (meme) => {
-    console.log(meme, "m");
     setIsModalOpen(true);
     setSelectedMeme(meme);
   };
@@ -67,7 +66,15 @@ export const Home = () => {
       {shimmerLoader && <ShimmerCard />}
       {isModalOpen && selectedMeme && (
         <Modal onClose={OnModalClose}>
-          <div>{selectedMeme.title}</div>
+          <div>{selectedMeme.author}</div>
+          <div>
+            <img
+              src={selectedMeme.url || selectedMeme.thumbnail}
+              alt={selectedMeme.author}
+              className="w-64 h-64"
+              loading="lazy"
+            />
+          </div>
         </Modal>
       )}
     </div>
