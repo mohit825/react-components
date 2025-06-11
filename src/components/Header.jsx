@@ -32,6 +32,7 @@ const Header = () => {
         <Link to="/search">Search Bar</Link>
         <Link to="/pagination">Pagination</Link>
         <Link to="/react-patterns">Patterns</Link>
+        <Link to="otp-component">OTP</Link>
       </nav>
       <ToggleThemeContainer />
     </div>

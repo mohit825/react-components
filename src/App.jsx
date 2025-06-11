@@ -14,6 +14,7 @@ import Admin from "./Links/Admin";
 import { Home } from "./Links/Home";
 import Login from "./Links/Login";
 import ThemeContext from "./store/ThemeContext";
+import OTPComponent from "./components/OTP/OTPContainer";
 
 const PaginationContainer = lazy(() =>
   import("./components/Pagination/PaginationContainer")
@@ -108,6 +109,7 @@ function App() {
             <Route path="hoc-example" element={<HOCExample />} />
             <Route path="compound" element={<CompoundPattern />} />
           </Route>
+          <Route path="otp-component" element={<OTPComponent />} />
         </Routes>
       </BrowserRouter>
     </ThemeContext.Provider>
