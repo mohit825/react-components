@@ -33,6 +33,7 @@ const Header = () => {
         <Link to="/pagination">Pagination</Link>
         <Link to="/react-patterns">Patterns</Link>
         <Link to="otp-component">OTP</Link>
+        <Link to="/problems">Problems</Link>
       </nav>
       <ToggleThemeContainer />
     </div>

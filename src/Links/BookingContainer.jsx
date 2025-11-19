@@ -24,7 +24,7 @@ const BookingContainer = () => {
     <>
       <Booking
         label={"VIP"}
-        seatsRow={5}
+        seatsRow={8}
         seatsColumn={5}
         onGridClickHandler={onSeatSelected}
         selected={seatSelected}

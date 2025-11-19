@@ -1,0 +1,15 @@
+.progress{
+ background-color: #c5c5c5;
+ width: 500px;
+ border-radius: 10px;
+ margin: auto;
+ margin-bottom: 1rem
+}
+
+.progress-bar{
+    border-radius: 10px;
+}
+
+.center {
+    @apply text-center
+}

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://mohit825.github.io/react-components/",
+  "homepage": "https://mohit825.github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@testing-library/user-event": "^14.6.1",
+    "clsx": "^2.1.1",
     "gh-pages": "^6.3.0",
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.1",

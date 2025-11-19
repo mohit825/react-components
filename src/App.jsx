@@ -5,7 +5,6 @@ import Header from "./components/Header";
 import LiveStreaming from "./components/Live Streaming/Live Streaming";
 import CommentsContainer from "./components/nested-comments/commentsContainer";
 import ReactPatterns from "./components/React Patterns";
-import CompoundPattern from "./components/React Patterns/Compound Pattern/index";
 import HOCExample from "./components/React Patterns/HOCExample/HOCExample";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ProtectedRoute from "./hoc/ProtectedRoute";
@@ -15,6 +14,12 @@ import { Home } from "./Links/Home";
 import Login from "./Links/Login";
 import ThemeContext from "./store/ThemeContext";
 import OTPComponent from "./components/OTP/OTPContainer";
+import { ReactProblems } from "./pages/react-problems";
+import TableGenerator from "./features/Problems/Table-Generator/tableGenerator";
+import CompoundPattern from "./components/React Patterns/Compound Pattern";
+import { Tab } from "./components/React Patterns/Compound Pattern/Tabs/Tabs";
+import { ProgressBarContainer } from "./features/Problems/ProgressBar/ProgressBarContainer";
+import { SignIn } from "./pages/sign-in";
 
 const PaginationContainer = lazy(() =>
   import("./components/Pagination/PaginationContainer")
@@ -36,11 +41,14 @@ function App() {
   const [theme, setTheme] = useState(themePreferenceSelected);
 
   return (
+    <BrowserRouter>
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <BrowserRouter>
         <Header />
+    </ThemeContext.Provider>
+
         <Routes>
-          <Route path="/react-components" element={<Home />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/booking"
             element={
@@ -107,12 +115,21 @@ function App() {
           />
           <Route path="/react-patterns" element={<ReactPatterns />}>
             <Route path="hoc-example" element={<HOCExample />} />
-            <Route path="compound" element={<CompoundPattern />} />
+            <Route path="compound" element={<CompoundPattern />}>
+             <Route path='tab' element={<Tab />} />
+            </Route>
           </Route>
           <Route path="otp-component" element={<OTPComponent />} />
+          <Route path="/problems" element={<ReactProblems />} >
+            <Route path="table" element={<TableGenerator />} />
+            <Route path="pBar" element={<ProgressBarContainer />} />
+
+          
+          </Route>
         </Routes>
+       
+
       </BrowserRouter>
-    </ThemeContext.Provider>
   );
 }
 
