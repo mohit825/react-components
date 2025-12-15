@@ -20,6 +20,9 @@ import CompoundPattern from "./components/React Patterns/Compound Pattern";
 import { Tab } from "./components/React Patterns/Compound Pattern/Tabs/Tabs";
 import { ProgressBarContainer } from "./features/Problems/ProgressBar/ProgressBarContainer";
 import { SignIn } from "./pages/sign-in";
+import { LatestReact } from "./features/Problems/React 19.2/LatestReact";
+import { AutoSuggestContainer } from "./features/Problems/AutoSuggestContainer/AutoSuggestContainer";
+import { DynamicFormContianer } from "./features/Problems/DynamicForms/DynamicFormContainer";
 
 const PaginationContainer = lazy(() =>
   import("./components/Pagination/PaginationContainer")
@@ -42,94 +45,93 @@ function App() {
 
   return (
     <BrowserRouter>
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
         <Header />
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
 
-        <Routes>
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/booking"
-            element={
-              <Suspense
-                fallback={
-                  <div>
-                    <h1>Loading...</h1>
-                  </div>
-                }
-              >
-                <BookingContainer />
-              </Suspense>
-            }
-          />
-          <Route element={<ProtectedRoute />}>
-            <Route path="/admin" element={<Admin />} />
+      <Routes>
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/booking"
+          element={
+            <Suspense
+              fallback={
+                <div>
+                  <h1>Loading...</h1>
+                </div>
+              }
+            >
+              <BookingContainer />
+            </Suspense>
+          }
+        />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/admin" element={<Admin />} />
+        </Route>
+
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/accordion"
+          element={
+            <Suspense
+              fallback={
+                <div>
+                  <h1>Loading...</h1>
+                </div>
+              }
+            >
+              <AccordionContainer />
+            </Suspense>
+          }
+        />
+        <Route path="/comments" element={<CommentsContainer />} />
+        <Route
+          path="/image-slider"
+          element={
+            <Suspense
+              fallback={
+                <div>
+                  <h1>Loading...</h1>
+                </div>
+              }
+            >
+              <ImageSliderContainer />
+            </Suspense>
+          }
+        />
+        <Route path="/stream" element={<LiveStreaming />} />
+        <Route path="/search" element={<SearchBar />} />
+        <Route
+          path="/pagination"
+          element={
+            <Suspense
+              fallback={
+                <div>
+                  <h1>Loading...</h1>
+                </div>
+              }
+            >
+              <PaginationContainer />
+            </Suspense>
+          }
+        />
+        <Route path="/react-patterns" element={<ReactPatterns />}>
+          <Route path="hoc-example" element={<HOCExample />} />
+          <Route path="compound" element={<CompoundPattern />}>
+            <Route path="tab" element={<Tab />} />
           </Route>
-
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/accordion"
-            element={
-              <Suspense
-                fallback={
-                  <div>
-                    <h1>Loading...</h1>
-                  </div>
-                }
-              >
-                <AccordionContainer />
-              </Suspense>
-            }
-          />
-          <Route path="/comments" element={<CommentsContainer />} />
-          <Route
-            path="/image-slider"
-            element={
-              <Suspense
-                fallback={
-                  <div>
-                    <h1>Loading...</h1>
-                  </div>
-                }
-              >
-                <ImageSliderContainer />
-              </Suspense>
-            }
-          />
-          <Route path="/stream" element={<LiveStreaming />} />
-          <Route path="/search" element={<SearchBar />} />
-          <Route
-            path="/pagination"
-            element={
-              <Suspense
-                fallback={
-                  <div>
-                    <h1>Loading...</h1>
-                  </div>
-                }
-              >
-                <PaginationContainer />
-              </Suspense>
-            }
-          />
-          <Route path="/react-patterns" element={<ReactPatterns />}>
-            <Route path="hoc-example" element={<HOCExample />} />
-            <Route path="compound" element={<CompoundPattern />}>
-             <Route path='tab' element={<Tab />} />
-            </Route>
-          </Route>
-          <Route path="otp-component" element={<OTPComponent />} />
-          <Route path="/problems" element={<ReactProblems />} >
-            <Route path="table" element={<TableGenerator />} />
-            <Route path="pBar" element={<ProgressBarContainer />} />
-
-          
-          </Route>
-        </Routes>
-       
-
-      </BrowserRouter>
+        </Route>
+        <Route path="otp-component" element={<OTPComponent />} />
+        <Route path="/problems" element={<ReactProblems />}>
+          <Route path="table" element={<TableGenerator />} />
+          <Route path="pBar" element={<ProgressBarContainer />} />
+          <Route path="latestVersion" element={<LatestReact />} />
+          <Route path="autoSuggest" element={<AutoSuggestContainer />} />
+          <Route path="dynamicForm" element={<DynamicFormContianer />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
