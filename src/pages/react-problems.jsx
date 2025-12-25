@@ -21,6 +21,18 @@ const problemRoutes = [
     path: "dynamicForm",
     text: "Dynamic Form",
   },
+  {
+    path: "infiniteScroll",
+    text: "Infinite Scroll",
+  },
+  {
+    path: "dynamicGrid",
+    text: "Dynamic Grid",
+  },
+  {
+    path: "typeRacer",
+    text: "Type Racer",
+  },
 ];
 
 export const ReactProblems = () => {

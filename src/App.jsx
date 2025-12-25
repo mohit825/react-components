@@ -23,6 +23,9 @@ import { SignIn } from "./pages/sign-in";
 import { LatestReact } from "./features/Problems/React 19.2/LatestReact";
 import { AutoSuggestContainer } from "./features/Problems/AutoSuggestContainer/AutoSuggestContainer";
 import { DynamicFormContianer } from "./features/Problems/DynamicForms/DynamicFormContainer";
+import { InfiniteScroll } from "./features/Problems/InfiniteScroll/InfiniteScroll";
+import { DynamicGridContainer } from "./features/Problems/DynamicGrid/DynamicGrid";
+import TypeRacer from "./features/Problems/TypeRacer/TypeRacer";
 
 const PaginationContainer = lazy(() =>
   import("./components/Pagination/PaginationContainer")
@@ -129,6 +132,9 @@ function App() {
           <Route path="latestVersion" element={<LatestReact />} />
           <Route path="autoSuggest" element={<AutoSuggestContainer />} />
           <Route path="dynamicForm" element={<DynamicFormContianer />} />
+          <Route path="infiniteScroll" element={<InfiniteScroll />} />
+          <Route path="dynamicGrid" element={<DynamicGridContainer />} />
+          <Route path="typeRacer" element={<TypeRacer />} />
         </Route>
       </Routes>
     </BrowserRouter>
