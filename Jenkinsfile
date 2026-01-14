@@ -2,13 +2,15 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node23'
+        nodejs 'node18'
     }
 
     stages {
         stage('Install npm dependecies'){
 
             steps {
+                sh 'npm -v'
+                sh 'node -v'
                 sh 'npm install'
             }
         }
