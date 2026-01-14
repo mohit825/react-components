@@ -9,9 +9,13 @@ pipeline {
         stage('Install npm dependecies'){
 
             steps {
-                sh 'npm -v'
-                sh 'node -v'
-                sh 'npm install'
+                sh 'npm ci'
+            }
+        }
+
+        stage('Run lint configuration'){
+            steps {
+                sh 'npm run lint'
             }
         }
 
