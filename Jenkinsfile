@@ -19,6 +19,12 @@ pipeline {
             }
         }
 
+        stage('Added test setup'){
+            steps{
+                sh 'npm run test'
+            }
+        }
+
         stage('Run the build!!'){
             
             steps {
