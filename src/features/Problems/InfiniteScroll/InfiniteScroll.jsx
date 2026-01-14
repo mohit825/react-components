@@ -48,8 +48,8 @@ export const InfiniteScroll = () => {
       ) : (
         posts?.map((post, id) => {
           return (
-            <div className="p-3 bg-slate-200 m-4">
-              <p key={id}>{post.title}</p>
+            <div className="p-3 bg-slate-200 m-4" key={id}>
+              <p>{post.title}</p>
               <span>{post.body}</span>
             </div>
           );

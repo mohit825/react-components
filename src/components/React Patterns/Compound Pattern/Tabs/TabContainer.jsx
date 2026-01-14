@@ -15,6 +15,7 @@ Tabs.HeadsContainer = ({ children }) => {
 };
 
 Tabs.Title = ({ label, index }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { onChange, currentIndex } = useContext(TabContext);
   const onTabClick = () => {
     onChange(index);
@@ -34,6 +35,7 @@ Tabs.ContentContainer = ({ children }) => {
 };
 
 Tabs.Content = ({ children, index }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { currentIndex } = useContext(TabContext);
 
   return index === currentIndex ? <div>{children}</div> : null;

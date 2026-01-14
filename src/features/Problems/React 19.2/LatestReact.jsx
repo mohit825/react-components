@@ -11,10 +11,10 @@ export const LatestReact = () => {
       <p>
         This is an example of Activity feature. Which renders or hide the
         component smartly. <br /> When an Activity boundary is hidden, React
-        will visually hide its children using the display: "none" CSS property.
-        It will also destroy their Effects, cleaning up any active
-        subscriptions. While hidden, children still re-render in response to new
-        props, albeit at a lower priority than the rest of the content.
+        will visually hide its children using the display: none CSS property. It
+        will also destroy their Effects, cleaning up any active subscriptions.
+        While hidden, children still re-render in response to new props, albeit
+        at a lower priority than the rest of the content.
       </p>
 
       <div>

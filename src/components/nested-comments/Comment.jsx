@@ -9,8 +9,8 @@ const Comment = ({ commentInfo }) => {
       <p className="italic">{comment}</p>
       {replies?.map((reply, i) => {
         return (
-          <p className="ml-6">
-            <Comment commentInfo={reply} key={i} />
+          <p className="ml-6" key={i}>
+            <Comment commentInfo={reply} />
           </p>
         );
       })}

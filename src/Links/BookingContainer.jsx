@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Booking from "../components/Booking/Booking";
 
 const BookingContainer = () => {
