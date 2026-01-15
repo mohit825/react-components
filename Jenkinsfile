@@ -25,16 +25,18 @@ pipeline {
             }
         }
 
-        stage('Web Vitals'){
-            steps {
-                sh 'npm run lhci'
-            }
-        }
+     
 
         stage('Run the build!!'){
             
             steps {
                 sh 'npm run build'
+            }
+        }
+
+           stage('Web Vitals'){
+            steps {
+                sh 'npm run lhci'
             }
         }
     }
