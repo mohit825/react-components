@@ -6,52 +6,43 @@ pipeline {
     }
 
     stages {
-        stage('Install npm dependecies'){
-
+        stage('Install npm dependencies') {
             steps {
                 sh 'npm ci'
             }
         }
 
-        stage('Run lint configuration'){
+        stage('Run lint') {
             steps {
                 sh 'npm run lint'
             }
         }
 
-        stage('Added test setup'){
-            steps{
+        stage('Run tests') {
+            steps {
                 sh 'npm run test'
             }
         }
 
-        stage('Web Vitals'){
+        stage('Web Vitals') {
             steps {
                 sh 'npm run lhci'
             }
         }
 
-        stage('Run the build!!'){
-            
+        stage('Build') {
             steps {
                 sh 'npm run build'
             }
         }
 
-        stage('Deployment'){
+        stage('Deploy to DEV') {
             when {
                 branch 'dev'
             }
             steps {
-                echo "Deployment from dev server"
-            }
-
-            when {
-                branch 'feature/testing-jenkins'
-            }
-
-            steps {
-                echo "Deployment will be done from dev or main branch"
+                echo "Deploying to DEV environment"
+                // actual deploy command goes here
             }
         }
     }
