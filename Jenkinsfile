@@ -37,5 +37,22 @@ pipeline {
                 sh 'npm run build'
             }
         }
+
+        stage('Deployment'){
+            when {
+                branch 'dev'
+            }
+            steps {
+                echo "Deployment from dev server"
+            }
+
+            when {
+                branch 'feature/testing-jenkins'
+            }
+
+            steps {
+                echo "Deployment will be done from dev or main branch"
+            }
+        }
     }
 }
