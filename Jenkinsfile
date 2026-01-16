@@ -53,6 +53,7 @@ pipeline {
             }
            environment {
                 NETLIFY_AUTH_TOKEN = credentials('netlify-token')
+                NETLIFY_CI = 'true'
             }
              steps {
                 sh '''
