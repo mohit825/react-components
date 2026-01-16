@@ -31,10 +31,11 @@ pipeline {
             }
         }
 
-           stage('Web Vitals'){
+        stage('Web Vitals'){
             steps {
                 sh 'npm run lhci'
             }
+        }
 
         stage('Deploy to DEV') {
             when {
