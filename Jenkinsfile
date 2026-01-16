@@ -54,6 +54,7 @@ pipeline {
            environment {
                 NETLIFY_AUTH_TOKEN = credentials('netlify-token')
                 NETLIFY_CI = 'true'
+                HOME = "${env.WORKSPACE}/.ci-home"
             }
              steps {
                 sh '''
