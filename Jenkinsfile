@@ -46,6 +46,26 @@ pipeline {
                 // actual deploy command goes here
             }
         }
+
+        stage('Prod Deployment'){
+            when {
+                branch 'main'
+            }
+           environment {
+                NETLIFY_AUTH_TOKEN = credentials('netlify-token')
+            }
+             steps {
+                sh '''
+                  npx netlify deploy \
+                    --dir=dist \
+                    --prod \
+                    --site=d22b7e8f-12d4-412c-b09a-a46611296cbf
+                '''
+            }
+        }
+    }
+    
+
 }
 
 
