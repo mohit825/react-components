@@ -18,6 +18,7 @@ import { ReactProblems } from "./pages/react-problems";
 import TableGenerator from "./features/Problems/Table-Generator/tableGenerator";
 import CompoundPattern from "./components/React Patterns/Compound Pattern";
 import { Tab } from "./components/React Patterns/Compound Pattern/Tabs/Tabs";
+import { Select } from "./components/React Patterns/Compound Pattern/Select/SelectContainer";
 import { ProgressBarContainer } from "./features/Problems/ProgressBar/ProgressBarContainer";
 import { SignIn } from "./pages/sign-in";
 import { LatestReact } from "./features/Problems/React 19.2/LatestReact";
@@ -27,18 +28,18 @@ import { InfiniteScroll } from "./features/Problems/InfiniteScroll/InfiniteScrol
 import { DynamicGridContainer } from "./features/Problems/DynamicGrid/DynamicGrid";
 import TypeRacer from "./features/Problems/TypeRacer/TypeRacer";
 
-const PaginationContainer = lazy(() =>
-  import("./components/Pagination/PaginationContainer")
+const PaginationContainer = lazy(
+  () => import("./components/Pagination/PaginationContainer"),
 );
 
-const ImageSliderContainer = lazy(() =>
-  import("./components/image-slider/ImageSliderContainer")
+const ImageSliderContainer = lazy(
+  () => import("./components/image-slider/ImageSliderContainer"),
 );
 
 const BookingContainer = lazy(() => import("./Links/BookingContainer"));
 
-const AccordionContainer = lazy(() =>
-  import("./components/Accordion/AccordionContainer")
+const AccordionContainer = lazy(
+  () => import("./components/Accordion/AccordionContainer"),
 );
 
 function App() {
@@ -123,6 +124,7 @@ function App() {
           <Route path="hoc-example" element={<HOCExample />} />
           <Route path="compound" element={<CompoundPattern />}>
             <Route path="tab" element={<Tab />} />
+            <Route path="select" element={<Select />} />
           </Route>
         </Route>
         <Route path="otp-component" element={<OTPComponent />} />

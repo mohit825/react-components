@@ -10,6 +10,7 @@ const Accordion = ({ data }) => {
       setSelectedAccordion(accord);
     }
   };
+
   return (
     <>
       <div className="text-center">Accordion</div>
